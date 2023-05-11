@@ -1,0 +1,66 @@
+import smtplib 
+import RPi.GPIO as GPIO
+import time
+import os #for the webcam camera
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+
+#Email Variables
+SMTP_SERVER = 'smtp.gmail.com' #Email Server 
+SMTP_PORT = 587 #Server Port 
+GMAIL_USERNAME = 'hellodavidsonalums@gmail.com' #email account I created
+GMAIL_PASSWORD = 'imzd cgvw emiv qhba'  #device specific password
+
+#Set GPIO pins to use BCM pin numbers
+GPIO.setmode(GPIO.BCM)
+
+#Set digital pin 17(BCM) to an input and enable the pullup
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+#Detects button press
+GPIO.add_event_detect(17, GPIO.FALLING)
+
+class Emailer:
+    def sendmail(self, recipient, subject, content, image):
+
+        #Creates Email Headers
+        emailData = MIMEMultipart()
+        emailData['Subject'] = subject
+        emailData['To'] = recipient
+        emailData['From'] = GMAIL_USERNAME
+
+        #Attaches the text data
+        emailData.attach(MIMEText(content))
+
+        imageData = MIMEImage(open(image, 'rb').read(), 'jpg')
+        imageData.add_header('Content-Disposition', 'attachment; filename="image.jpg"')
+        emailData.attach(imageData)
+
+        #Connect to Gmail Server
+        session = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        session.ehlo()
+        session.starttls()
+        session.ehlo()
+
+        #Login to Gmail
+        session.login(GMAIL_USERNAME, GMAIL_PASSWORD)
+
+        #Send Email & Exit
+        session.sendmail(GMAIL_USERNAME, recipient, emailData.as_string())
+        session.quit
+
+sender = Emailer()
+
+while True:
+    if GPIO.event_detected(17):
+        os.system('fswebcam -r 960x720 -d /dev/video0 /home/pi/image.jpg') #command that takes the photo
+        image = '/home/pi/image.jpg'
+        print("photo taken :)")
+        sendTo = 'gracemcguire18@gmail.com','lovecraven@gmail.com','charlottewelsby03@gmail.com', 'jherr1999@gmail.com', 'jbmarshall224@gmail.com', 'shreyasharma1624@gmail.com', 'tylerbacon30@gmail.com','jackf340@gmail.com','emilyschmitt08@gmail.com'
+        emailSubject = "A DAVIDSON STUDENT WANTS TO SAY HI!"
+        emailContent = "A davidson student said hi to you at: " + time.ctime()
+        sender.sendmail(sendTo, emailSubject, emailContent, image)
+        print("Email Sent")
+
+    time.sleep(.1) 
