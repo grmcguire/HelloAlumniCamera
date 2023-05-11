@@ -8,7 +8,7 @@ Link to my creator statement on the utility/lack of utility in my project
 ### [Code](https://github.com/grmcguire/HelloAlumniCamera/blob/63d4c5889b36b22463619e04531d32124921edd3/Project%20Code)
 Here is link to the python program I ran in order to have my machine working
 
-### Documented Media
+### [Documented Media](https://docs.google.com/document/d/1hIMOp6EeUfQPpNvwGH8btdDX46T0g8eZt1-iIJLHR5k/edit?usp=sharing)
 Here is a link to the photos and descriptions of the different components of my project
 
 ### Tutorials Used
