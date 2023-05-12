@@ -17,7 +17,7 @@ Link to some of the photos people took with the device throughout the day
 Link to demonstration of the device working
 
 ### Tutorials Used
-[BC Robotics](https://bc-robotics.com/tutorials/sending-email-attached-photo-using-python-raspberry-pi/)- How I added the photo to the email server
+[BC Robotics](https://bc-robotics.com/tutorials/sending-email-using-python-raspberry-pi/)- How I added the photo to the email server
 
 [Raspberry Pi](https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/)- Where I got all of the information on adding the button to my circuitry
 
