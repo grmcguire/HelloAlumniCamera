@@ -18,9 +18,6 @@ GPIO.setmode(GPIO.BCM)
 #Set digital pin 17(BCM)
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-#this tells pi when the button is pressed
-GPIO.add_event_detect(17, GPIO.FALLING)
-
 class Emailer:
     def sendmail(self, recipient, subject, content, image):
 
@@ -53,7 +50,8 @@ class Emailer:
 sender = Emailer()
 
 while True: #function that does it all!
-    if GPIO.event_detected(17):
+    button_info = GPIO.input(17)
+    if button_info == false:
         os.system('fswebcam -r 960x720 -d /dev/video0 /home/pi/image.jpg') #command that takes the photo with fswebcam and saves it as /home/pi/image.jpg
         image = '/home/pi/image.jpg' 
         print("photo taken :)")
