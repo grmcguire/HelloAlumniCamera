@@ -13,6 +13,9 @@ Here is a link to the photos and descriptions of the different components of my 
 ### [Documented Taken Photos](https://drive.google.com/drive/folders/1HX4Ad2cA5xQwMQrLz_dzjULQwN9ID9BX?usp=sharing)
 Link to some of the photos people took with the device throughout the day
 
+### [Video of Device in action](https://youtu.be/csIdRnZ7neE)
+Link to demonstration of the device working
+
 ### Tutorials Used
 [BC Robotics](https://bc-robotics.com/tutorials/sending-email-attached-photo-using-python-raspberry-pi/)- How I added the photo to the email server
 
