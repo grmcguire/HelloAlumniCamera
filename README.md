@@ -23,5 +23,6 @@ Link to demonstration of the device working
 
 [York U](https://www-users.york.ac.uk/~mjf5/shed_cam/src/USB%20webcam.html)- Tutorial I used for connecting the webcam and using fswebcam with it
 
-## Progress Log
+## [Progress Log](https://docs.google.com/document/d/1cEGsDVeJu1CA3dR55EW0QW85XwwEIzA-NYoOBZs-eLI/edit?usp=sharing)
+Link to the timeline and log of problems and successes with this project
 
